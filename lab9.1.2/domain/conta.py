@@ -2,16 +2,16 @@ from datetime import datetime
 
 
 class Conta:
-    def __init__(self, cliente, saldo=0):
+    def __init__(self, cliente, saldo=0, historico=None):
         self.cliente = cliente
         self.saldo = saldo
-        self._historico = []
+        self._historico = historico or []
 
     def depositar(self, valor):
         self.saldo += valor
 
         self._historico.append({
-            "tipo": "Depósito",
+            "tipo": "Deposito",
             "valor": valor,
             "data": datetime.now()
         })
